@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import {getAll} from "../Serviceclient";
+import Header from "./Header";
+import Uutiset from "./Uutiset";
+import Navigointi from "./Navigointi";
+import Frisbeet from "./Frisbeet";
+
 
 class Paasivu extends Component {
     state = {discs: []}
@@ -18,8 +23,11 @@ class Paasivu extends Component {
 
     render() {
         return (
-            <div>
-                
+            <div className="container">
+                <Navigointi/>
+                <Header/>
+                <Uutiset/>
+                <Frisbeet frisbeet={this.state.discs}/>
             </div>
         );
     }
