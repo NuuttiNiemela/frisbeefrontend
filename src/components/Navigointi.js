@@ -17,12 +17,12 @@ class Navigointi extends Component {
                 <div>
 
                     <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand className="nav-link" to="/" exact activeClassName="active">Logo</Navbar.Brand>
+                        <Navbar.Brand activeclassname="active" className="nav-link" to="/">Logo</Navbar.Brand>
                         <Nav className="mr-auto">
-                            <NavLink className="nav-link" to="/" exact activeClassName="active">Main</NavLink>
-                            <NavLink className="nav-link" to="/Frisbeet" activeClassName="active" >Discs</NavLink>
-                            <NavLink className="nav-link" to="/Kentat" activeClassName="active" >Tracks</NavLink>
-                            <NavLink className="nav-link"  to="/OmatSivut" activeClassName="active">My Pages</NavLink>
+                            <NavLink exact activeclassname="active" className="nav-link" to="/">Main</NavLink>
+                            <NavLink activeclassname="active"  className="nav-link" to="/Frisbeet">Discs</NavLink>
+                            <NavLink activeclassname="active"  className="nav-link" to="/Kentat">Tracks</NavLink>
+                            <NavLink activeclassname="active" className="nav-link" to="/OmatSivut">My Pages</NavLink>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
