@@ -57,7 +57,7 @@ class Paasivu extends Component {
                 <Header/>
                 <Switch>
                     <Route exact path="/" component={Uutiset}/>
-                    <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs} delete={this.props.poisto} update={this.props.muokkaus} add={this.props.lisays}/>)}/>
+                    <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs} delete={this.poisto} update={this.muokkaus} add={this.lisays}/>)}/>
                     <Route path="/Kentat" component={Kentat}/>
                     <Route path="/OmatSivut" component={OmatSivut}/>
                 </Switch>

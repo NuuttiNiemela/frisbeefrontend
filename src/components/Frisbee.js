@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 
 class Frisbee extends Component {
+
+    poista = () => {
+        this.props.poista(this.props.id)
+    }
+
+    muutos = () => {
+        this.props.muutos(this.props.frisbee)
+    }
+
     render() {
         let apuHeader = "header" + this.props.id
         let apuCollapseTarget = "#collapse" + this.props.id
@@ -48,6 +57,9 @@ class Frisbee extends Component {
                             <tr>
                                 <th scope="row">Fade:</th>
                                 <td>{this.props.fade}</td>
+                            </tr>
+                            <tr>
+                                <td><button onClick={this.poista}>DEL</button></td>
                             </tr>
                             </tbody>
                         </table>
