@@ -33,13 +33,12 @@ class Paasivu extends Component {
             <div className="container">
 
                 <Navigointi/>
-                <Switch>
                 <Header/>
-                <Uutiset/>
-                <Frisbeet frisbeet={this.state.discs}/>
-                    <Route path="/frisbee" component={Frisbeet}/>
-                    <Route path="/tracks" component={Kentat}/>
-                    <Route path="/mypages" components={OmatSivut}/>
+                <Switch>
+                    <Route path="/Uutiset" component={Uutiset}/>
+                    <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs}/>)}/>
+                    <Route path="/Kentat" component={Kentat}/>
+                    <Route path="/OmatSivut" component={OmatSivut}/>
                 </Switch>
             </div>
             </Router>
