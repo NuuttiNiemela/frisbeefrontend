@@ -7,7 +7,7 @@ class Frisbee extends Component {
         let apuCollapse = "collapse" + this.props.id
         return (
             <div className="card">
-                <div className="card-header" id={apuHeader}>
+                <div className="card-header" id={apuHeader} style={{textAlign: "left"}}>
                     <h5 className="mb-0">
                         <button className="btn btn-link" data-toggle="collapse" data-target={apuCollapseTarget}
                                 aria-expanded="false" aria-controls="collapseOne">
@@ -17,7 +17,7 @@ class Frisbee extends Component {
                 </div>
 
                 <div id={apuCollapse} className="collapse" aria-labelledby={apuHeader}
-                     data-parent="#accordion">
+                     >
                     <div className="card-body">
                         <table className="table table-sm">
                             {/*<thead>*/}
@@ -28,10 +28,26 @@ class Frisbee extends Component {
                             {/*    <th scope="col">Handle</th>*/}
                             {/*</tr>*/}
                             {/*</thead>*/}
-                            <tbody>
+                            <tbody style={{textAlign: "left"}}>
                             <tr>
-                                <th scope="row">Nimi:</th>
+                                <th scope="row">Name:</th>
                                 <td>{this.props.nimi}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Speed:</th>
+                                <td>{this.props.speed}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Glide:</th>
+                                <td>{this.props.glide}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Turn:</th>
+                                <td>{this.props.turn}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fade:</th>
+                                <td>{this.props.fade}</td>
                             </tr>
                             </tbody>
                         </table>

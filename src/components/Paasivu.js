@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getAll} from "../Serviceclient";
+import {deleteId, getAll, postNew, updateId} from "../Serviceclient";
 import Header from "./Header";
 import Uutiset from "./Uutiset";
 import Navigointi from "./Navigointi";
@@ -27,6 +27,27 @@ class Paasivu extends Component {
         this.haeKaikki()
     }
 
+    lisays = (f) => {
+        postNew(f)
+            .then(() => {
+                this.haeKaikki()
+            })
+    }
+
+    muokkaus = (i, p) => {
+        updateId(i, p)
+            .then(() => {
+                this.haeKaikki();
+            })
+    }
+
+    poisto = (id) => {
+        deleteId(id)
+            .then(() => {
+                this.haeKaikki()
+            })
+    }
+
     render() {
         return (
             <Router>
@@ -35,8 +56,8 @@ class Paasivu extends Component {
                 <Navigointi/>
                 <Header/>
                 <Switch>
-                    <Route path="/Uutiset" component={Uutiset}/>
-                    <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs}/>)}/>
+                    <Route exact path="/" component={Uutiset}/>
+                    <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs} delete={this.props.poisto} update={this.props.muokkaus} add={this.props.lisays}/>)}/>
                     <Route path="/Kentat" component={Kentat}/>
                     <Route path="/OmatSivut" component={OmatSivut}/>
                 </Switch>

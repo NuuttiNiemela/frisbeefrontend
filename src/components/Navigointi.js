@@ -17,9 +17,9 @@ class Navigointi extends Component {
                 <div>
 
                     <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand className="nav-link" to="/Paasivu" exact activeClassName="active">Logo</Navbar.Brand>
+                        <Navbar.Brand className="nav-link" to="/" exact activeClassName="active">Logo</Navbar.Brand>
                         <Nav className="mr-auto">
-                            <NavLink className="nav-link" to="/Paasivu" exact activeClassName="active">Main</NavLink>
+                            <NavLink className="nav-link" to="/" exact activeClassName="active">Main</NavLink>
                             <NavLink className="nav-link" to="/Frisbeet" activeClassName="active" >Discs</NavLink>
                             <NavLink className="nav-link" to="/Kentat" activeClassName="active" >Tracks</NavLink>
                             <NavLink className="nav-link"  to="/OmatSivut" activeClassName="active">My Pages</NavLink>
