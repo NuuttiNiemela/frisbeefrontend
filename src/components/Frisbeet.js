@@ -9,7 +9,6 @@ class Frisbeet extends Component {
         })
         return (
             <div>
-                <Navigointi/>
                 <table>
                     <tbody>
 

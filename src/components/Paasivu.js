@@ -4,6 +4,12 @@ import Header from "./Header";
 import Uutiset from "./Uutiset";
 import Navigointi from "./Navigointi";
 import Frisbeet from "./Frisbeet";
+import Kentat from "./Kentat";
+import Nav from "react-bootstrap/Nav";
+import {NavLink, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
+import OmatSivut from "./OmatSivut";
+
 
 
 class Paasivu extends Component {
@@ -23,12 +29,20 @@ class Paasivu extends Component {
 
     render() {
         return (
+            <Router>
             <div className="container">
+
                 <Navigointi/>
+                <Switch>
                 <Header/>
                 <Uutiset/>
                 <Frisbeet frisbeet={this.state.discs}/>
+                    <Route path="/frisbee" component={Frisbeet}/>
+                    <Route path="/tracks" component={Kentat}/>
+                    <Route path="/mypages" components={OmatSivut}/>
+                </Switch>
             </div>
+            </Router>
         );
     }
 }
