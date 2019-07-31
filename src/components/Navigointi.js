@@ -5,6 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl';
+import {NavLink} from "react-router-dom";
+
 
 
 class Navigointi extends Component {
@@ -15,11 +17,12 @@ class Navigointi extends Component {
                 <div>
 
                     <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand to="/" exact activeClassName="active">Logo</Navbar.Brand>
+                        <Navbar.Brand className="nav-link" to="/Paasivu" exact activeClassName="active">Logo</Navbar.Brand>
                         <Nav className="mr-auto">
-                            <Nav.Link to="/Frisbeet" activeClassName="active">Discs</Nav.Link>
-                            <Nav.Link to="/Kentat" activeClassName="active">Tracks</Nav.Link>
-                            <Nav.Link to="/OmatSivut">My Pages</Nav.Link>
+                            <NavLink className="nav-link" to="/Paasivu" exact activeClassName="active">Main</NavLink>
+                            <NavLink className="nav-link" to="/Frisbeet" activeClassName="active" >Discs</NavLink>
+                            <NavLink className="nav-link" to="/Kentat" activeClassName="active" >Tracks</NavLink>
+                            <NavLink className="nav-link"  to="/OmatSivut" activeClassName="active">My Pages</NavLink>
                         </Nav>
                         <Form inline>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
