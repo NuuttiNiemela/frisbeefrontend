@@ -5,18 +5,17 @@ import Frisbee from "./Frisbee";
 class Frisbeet extends Component {
     render() {
         var lista = this.props.frisbeet.map((frisbee) => {
-            return <Frisbee nimi={frisbee.name} key={frisbee.id}/>
+            return <Frisbee nimi={frisbee.name} key={frisbee.id} id={frisbee.id}/>
         })
         return (
-            <div>
-                <table>
-                    <tbody>
+            <div id="accordion" className={'col-10'}>
+                {/*<table>*/}
+                {/*    <tbody>*/}
 
                     {lista}
 
-                    </tbody>
-                </table>
-
+                {/*    </tbody>*/}
+                {/*</table>*/}
             </div>
         );
     }
