@@ -11,3 +11,4 @@ class OmatSivut extends Component {
 }
 
 export default OmatSivut;
+
