@@ -11,7 +11,7 @@ class Frisbeet extends Component {
         })
         return (
             <div>
-                <Frisbeelisays/>
+                <Frisbeelisays add={this.props.add}/>
             <div id="accordion" className={'col-10'}>
                     {lista}
             </div>
