@@ -5,17 +5,30 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl';
-import {NavLink} from "react-router-dom";
+import {NavLink, Route, Redirect} from "react-router-dom";
 
 
 
 class Navigointi extends Component {
 
+    state = {haku: ''}
+
+
+    change = (kr) => {this.setState({haku:kr.target.value})}
+
+    haku = (h) => {
+        h.preventDefault()
+        this.props.haku(this.state.haku)
+
+        // this.setState({haku: ''})
+    }
+
     render() {
+
+
         return (
 
                 <div>
-
                     <Navbar bg="dark" variant="dark">
                         <Navbar.Brand activeclassname="active" className="nav-link" to="/">Logo</Navbar.Brand>
                         <Nav className="mr-auto">
@@ -25,12 +38,12 @@ class Navigointi extends Component {
                             <NavLink activeclassname="active" className="nav-link" to="/OmatSivut">My Pages</NavLink>
                         </Nav>
                         <Form inline>
-                            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                            <Button variant="outline-info">Search</Button>
+                            <input className="form-control mr-sm-2" type="search" placeholder="Search" value={this.state.haku} onChange={this.change}/>
+                            <Button variant="outline-info" type="submit" onClick={this.haku} >Search</Button>
                         </Form>
                     </Navbar>
-
                     <br />
+
                 </div>
 
 
