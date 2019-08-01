@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Frisbee from "./Frisbee";
+import Frisbeelisays from "./Frisbeelisays";
 
 class Frisbeet extends Component {
     render() {
@@ -9,14 +10,11 @@ class Frisbeet extends Component {
             poista={this.props.delete} muutos={this.props.update}/>
         })
         return (
+            <div>
+                <Frisbeelisays/>
             <div id="accordion" className={'col-10'}>
-                {/*<table>*/}
-                {/*    <tbody>*/}
-
                     {lista}
-
-                {/*    </tbody>*/}
-                {/*</table>*/}
+            </div>
             </div>
         );
     }
