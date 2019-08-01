@@ -21,3 +21,8 @@ export function updateId(id, frisbee) {
 export function getByName(f) {
     return axios.get('http://localhost:8080/api/frisbee/' + f)
 }
+
+export function getTracks() {
+    return axios.get('http://localhost:8080/api/tracks/')
+        .then((response) => response.data)
+}
