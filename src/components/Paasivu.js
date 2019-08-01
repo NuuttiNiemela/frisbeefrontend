@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
-import {deleteId, getAll, postNew, updateId} from "../Serviceclient";
+import {getByName, deleteId, getAll, postNew, updateId} from "../Serviceclient";
 import Header from "./Header";
 import Uutiset from "./Uutiset";
 import Navigointi from "./Navigointi";
 import Frisbeet from "./Frisbeet";
 import Kentat from "./Kentat";
 import Nav from "react-bootstrap/Nav";
-import {NavLink, Switch, Route} from "react-router-dom";
+import {NavLink, Switch, Route, Redirect} from "react-router-dom";
 import {BrowserRouter as Router} from "react-router-dom";
 import OmatSivut from "./OmatSivut";
 
 
 
 class Paasivu extends Component {
-    state = {discs: []}
+    state = {discs: [], redirect: false}
 
     haeKaikki = () => {
         getAll()
@@ -47,13 +47,30 @@ class Paasivu extends Component {
                 this.haeKaikki()
             })
     }
+    
+    haeHakusanalla = (a) => {
+        getByName(a)
+            .then((response) =>  {
+            this.setState({discs: response.data, redirect: true})
+            console.log(this.state)
+
+})
+    }
+
+renderRedirect = () => {
+    if (this.state.redirect) {
+        this.setState({redirect: false})
+        return <Redirect to='/Frisbeet' />
+    }
+}
 
     render() {
         return (
             <Router>
+            {this.renderRedirect()}
             <div className="container">
 
-                <Navigointi/>
+                <Navigointi haku={this.haeHakusanalla}/>
                 <Header/>
                 <Switch>
                     <Route exact path="/" component={Uutiset}/>

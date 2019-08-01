@@ -17,3 +17,7 @@ export function postNew(frisbee) {
 export function updateId(id, frisbee) {
     return axios.put('http://localhost:8080/api/frisbee/' + id, frisbee)
 }
+
+export function getByName(f) {
+    return axios.get('http://localhost:8080/api/frisbee/' + f)
+}
