@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Frisbee from "./Frisbee";
 import Track from "./Track";
 
 class Kentat extends Component {

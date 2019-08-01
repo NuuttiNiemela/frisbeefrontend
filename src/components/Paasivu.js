@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getByName, deleteId, getAll, postNew, updateId, getTracks} from "../Serviceclient";
+import {getByName, deleteId, getAll, postNew, updateId, getTracks, haeSivu} from "../Serviceclient";
 import Header from "./Header";
 import Uutiset from "./Uutiset";
 import Navigointi from "./Navigointi";
@@ -72,6 +72,14 @@ renderRedirect = () => {
             })
     }
 
+    haeSivu = (s) => {
+        haeSivu(1)
+            .then((response) => {
+                this.setState({discs: response});
+                console.log(this.state)
+            })
+    }
+
     render() {
         return (
             <Router>
@@ -82,7 +90,7 @@ renderRedirect = () => {
                 <Header/>
                 <Switch>
                     <Route exact path="/" component={Uutiset}/>
-                    <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs} delete={this.poisto} update={this.muokkaus} add={this.lisays}/>)}/>
+                    <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs} delete={this.poisto} update={this.muokkaus} add={this.lisays} haku={this.haeSivu}/>)}/>
                     <Route path="/Kentat" render={()=> (<Kentat radat={this.state.tracks}/>)}/>
                     <Route path="/OmatSivut" component={OmatSivut}/>
                 </Switch>

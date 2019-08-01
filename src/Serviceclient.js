@@ -26,3 +26,8 @@ export function getTracks() {
     return axios.get('http://localhost:8080/api/tracks/')
         .then((response) => response.data)
 }
+
+export function haeSivu(s) {
+    return axios.get('http://localhost:8080/api/frisbee/frisbeeascending?page=' + s + '&param=name')
+        .then( (response) => response.data)
+}
