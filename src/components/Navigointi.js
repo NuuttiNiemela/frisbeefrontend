@@ -35,7 +35,6 @@ class Navigointi extends Component {
                             <NavLink exact activeclassname="active" className="nav-link" to="/">Main</NavLink>
                             <NavLink activeclassname="active"  className="nav-link" to="/Frisbeet">Discs</NavLink>
                             <NavLink activeclassname="active"  className="nav-link" to="/Kentat">Tracks</NavLink>
-                            <NavLink activeclassname="active" className="nav-link" to="/OmatSivut">My Pages</NavLink>
                         </Nav>
                         <Form inline>
                             <input className="form-control mr-sm-2" type="search" placeholder="Search" value={this.state.haku} onChange={this.change}/>

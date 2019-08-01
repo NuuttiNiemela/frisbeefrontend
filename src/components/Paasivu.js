@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getByName, deleteId, getAll, postNew, updateId} from "../Serviceclient";
+import {getByName, deleteId, getAll, postNew, updateId, getTracks} from "../Serviceclient";
 import Header from "./Header";
 import Uutiset from "./Uutiset";
 import Navigointi from "./Navigointi";
@@ -13,7 +13,7 @@ import OmatSivut from "./OmatSivut";
 
 
 class Paasivu extends Component {
-    state = {discs: [], redirect: false}
+    state = {discs: [], tracks: [], redirect: false}
 
     haeKaikki = () => {
         getAll()
@@ -25,6 +25,7 @@ class Paasivu extends Component {
 
     componentDidMount = () => {
         this.haeKaikki()
+        this.haeRadat()
     }
 
     lisays = (f) => {
@@ -64,6 +65,13 @@ renderRedirect = () => {
     }
 }
 
+    haeRadat = () => {
+        getTracks()
+            .then((response) => {
+                this.setState({tracks: response})
+            })
+    }
+
     render() {
         return (
             <Router>
@@ -75,7 +83,7 @@ renderRedirect = () => {
                 <Switch>
                     <Route exact path="/" component={Uutiset}/>
                     <Route path="/Frisbeet" render={()=> (<Frisbeet frisbeet={this.state.discs} delete={this.poisto} update={this.muokkaus} add={this.lisays}/>)}/>
-                    <Route path="/Kentat" component={Kentat}/>
+                    <Route path="/Kentat" render={()=> (<Kentat radat={this.state.tracks}/>)}/>
                     <Route path="/OmatSivut" component={OmatSivut}/>
                 </Switch>
             </div>
