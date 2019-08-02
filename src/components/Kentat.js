@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-import Track from "./Track";
 import paginate from 'paginate-array';
 
 
 class Kentat extends Component {
+    /**
+     * Pagination sivu kentille
+     * alustetaan state kenttälistalle, sivun koolle, tämänhetkiselle sivulle
+     */
+
     constructor(props){
         super(props);
         this.state={
@@ -17,6 +21,10 @@ class Kentat extends Component {
         this.handleChange = this.handleChange.bind(this);
     };
 
+    /**
+     * haetaan json data poikkeuksellisesti suoraan localhostin URL:sta,
+     * muutoin ServiceClientin kautta
+     */
     componentDidMount() {
         fetch(`http://localhost:8080/api/tracks/`)
             .then(response => response.json())
@@ -32,6 +40,10 @@ class Kentat extends Component {
                 });
             });
     }
+
+    /**
+     * Asetetaan edellisen sivun toiminto
+     */
     previousPage() {
         const { currPage, page, size, tracks } = this.state;
 
@@ -46,6 +58,10 @@ class Kentat extends Component {
             });
         }
     }
+
+    /**
+     * Asetetaan seuraavan sivun toiminto
+     */
     nextPage() {
         const { currPage, page, size, tracks } = this.state;
 
@@ -55,6 +71,10 @@ class Kentat extends Component {
             this.setState({ ...this.state, page: newPage, currPage: newCurrPage });
         }
     }
+
+    /**
+     *tapahtumakäsittelijä kun klikataan edellinen tai seuraava sivu
+     */
     handleChange(e) {
         const { value } = e.target;
         const { tracks, page } = this.state;
@@ -88,7 +108,6 @@ class Kentat extends Component {
                         {currPage.data.map(track => <tr key={track.id}>{track.fullname}</tr>)}
                     </td>}
 
-
                     {currPage &&
                     <td>
                         <th scope="row">City:</th>
@@ -100,8 +119,6 @@ class Kentat extends Component {
                         <th scope="row">Location:</th>
                         {currPage.data.map(track=> <tr key={track.id}>{track.location}</tr>)}
                     </td>}
-
-
                         </tr>
 
                         </tbody>
@@ -111,8 +128,6 @@ class Kentat extends Component {
                     <div>page: {page}</div>
                     <button onClick={this.nextPage}>Next Page</button>
                 </div>
-
-
             </div>
         );
     }

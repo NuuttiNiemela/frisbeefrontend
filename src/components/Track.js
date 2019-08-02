@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+/**
+ * Kenttien listaustoiminnallisuus, ei käytössä versiossa 1.0
+ */
+
 class Track extends Component {
     state={id: this.props.id, fullname: '', city: '', location:''}
     render() {
@@ -23,14 +27,6 @@ class Track extends Component {
                 >
                     <div className="card-body">
                         <table className="table table-sm">
-                            {/*<thead>*/}
-                            {/*<tr>*/}
-                            {/*    <th scope="col">#</th>*/}
-                            {/*    <th scope="col">First</th>*/}
-                            {/*    <th scope="col">Last</th>*/}
-                            {/*    <th scope="col">Handle</th>*/}
-                            {/*</tr>*/}
-                            {/*</thead>*/}
                             <tbody style={{textAlign: "left"}}>
                             <tr>
                                 <th scope="row">Name:</th>
