@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+/**
+ * Mukana kulkeva header, jossa kuva.
+ */
 class Header extends Component {
     render() {
         return (
