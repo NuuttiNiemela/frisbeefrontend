@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+/**
+ * Axios funktiot REST-apiin.
+ */
 export function getAll() {
     return axios.get('http://localhost:8080/api/frisbee/')
         .then((response) => response.data)

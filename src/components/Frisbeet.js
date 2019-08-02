@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Frisbee from "./Frisbee";
 import Frisbeelisays from "./Frisbeelisays";
 
+/**
+ * Frisbee mappays frisbeet sivua varten.
+ */
 class Frisbeet extends Component {
     render() {
         var lista = this.props.frisbeet.map((frisbee) => {

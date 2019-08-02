@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 
+/**
+ * Komponentti Frisbeelle, Accordion-ulkoasu. Mukana edit-nappula, jolla voidaan muuttaa kiekkoa,
+ * sekä delete-nappula.
+ */
 class Frisbee extends Component {
     state={id: this.props.id, name: '', brand:'', speed: this.props.speed, glide: this.props.glide, turn: this.props.turn, fade: this.props.fade}
-
 
     brandChange = (ev) => {this.setState({brand: ev.target.value})}
     nameChange = (ev) => {this.setState({name: ev.target.value.toUpperCase()})}

@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 class Frisbeelisays extends Component {
     state={id:'', brand:'', name: '', speed: '1', glide:'1', turn:'0', fade:'0'}
 
-
+    /**
+     * Uuden frisbeen lisäys. Reactin pyytämät tekstikenttien change-handlerit ja staten kautta vienti Paasivulle,
+     * jossa itse tallenus functio lähtee.
+     */
     brandChange = (ev) => {this.setState({brand: ev.target.value})}
     nameChange = (ev) => {this.setState({name: ev.target.value.toUpperCase()})}
     speedChange = (ev) => {this.setState({speed: ev.target.value})}

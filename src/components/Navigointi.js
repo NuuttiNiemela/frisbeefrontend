@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/Nav';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl';
-import {NavLink, Route, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 
-
+/**
+ * Navigointi, jossa mukana kiekkojen haku. Haku siirtää selaimen kiekko-sivulle.
+ */
 class Navigointi extends Component {
 
     state = {haku: ''}
@@ -19,8 +19,6 @@ class Navigointi extends Component {
     haku = (h) => {
         h.preventDefault()
         this.props.haku(this.state.haku)
-
-        // this.setState({haku: ''})
     }
 
     render() {
@@ -30,7 +28,7 @@ class Navigointi extends Component {
 
                 <div>
                     <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand activeclassname="active" className="nav-link" to="/">Logo</Navbar.Brand>
+                        <Navbar.Brand activeclassname="active" className="nav-link" to="/">Frisbee</Navbar.Brand>
                         <Nav className="mr-auto">
                             <NavLink exact activeclassname="active" className="nav-link" to="/">Main</NavLink>
                             <NavLink activeclassname="active"  className="nav-link" to="/Frisbeet">Discs</NavLink>
