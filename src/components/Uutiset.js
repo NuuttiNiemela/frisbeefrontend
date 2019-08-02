@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 
+/**
+ * haetaan feedi Disc Golf Metrixin facebook sivuilta,
+ * saattaa herjata consolessa mikäli käyttäjä ei ole kirjautuneena facebookiin
+ */
+
 class Uutiset extends Component {
     render() {
         return (

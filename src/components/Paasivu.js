@@ -5,12 +5,15 @@ import Uutiset from "./Uutiset";
 import Navigointi from "./Navigointi";
 import Frisbeet from "./Frisbeet";
 import Kentat from "./Kentat";
-import Nav from "react-bootstrap/Nav";
 import {NavLink, Switch, Route, Redirect} from "react-router-dom";
 import {BrowserRouter as Router} from "react-router-dom";
 import OmatSivut from "./OmatSivut";
 
-
+/**
+ * funktiot toiminnallisuuksille: haku, lisäys, muokkaus ja poisto.
+ * --> haeSivu funktio ei käytössä versiossa 1.0
+ * Reititys One Page Aplikaatiolle
+ */
 
 class Paasivu extends Component {
     state = {discs: [], tracks: [], redirect: false}
