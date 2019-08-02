@@ -5,7 +5,7 @@ import Frisbeelisays from "./Frisbeelisays";
 class Frisbeet extends Component {
     render() {
         var lista = this.props.frisbeet.map((frisbee) => {
-            return <Frisbee nimi={frisbee.name} key={frisbee.id} id={frisbee.id}
+            return <Frisbee nimi={frisbee.name} brand={frisbee.brand} key={frisbee.id} id={frisbee.id}
             speed={frisbee.speed} glide={frisbee.glide} turn={frisbee.turn} fade={frisbee.fade}
             poista={this.props.delete} muutos={this.props.update}/>
         })
