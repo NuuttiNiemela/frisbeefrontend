@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
 class Frisbee extends Component {
-    // state={id: this.props.id, name: '', speed: '', glide:'', turn:'', fade: ''}
-    state={id: this.props.id, name: '', speed: this.props.speed, glide: this.props.glide, turn: this.props.turn, fade: this.props.fade}
-    // brand:'',
+    state={id: this.props.id, name: '', brand:'', speed: this.props.speed, glide: this.props.glide, turn: this.props.turn, fade: this.props.fade}
 
+
+    brandChange = (ev) => {this.setState({brand: ev.target.value})}
     nameChange = (ev) => {this.setState({name: ev.target.value.toUpperCase()})}
     speedChange = (ev) => {this.setState({speed: ev.target.value})}
     glideChange = (ev) => {this.setState({glide: ev.target.value})}
@@ -31,7 +31,7 @@ class Frisbee extends Component {
                     <h5 className="mb-0">
                         <button className="btn btn-link" data-toggle="collapse" data-target={apuCollapseTarget}
                                 aria-expanded="false" aria-controls="collapseOne">
-                            {this.props.nimi}
+                            {this.props.brand} {this.props.nimi}
                         </button>
                     </h5>
                 </div>
@@ -40,15 +40,12 @@ class Frisbee extends Component {
                      >
                     <div className="card-body">
                         <table className="table table-sm">
-                            {/*<thead>*/}
-                            {/*<tr>*/}
-                            {/*    <th scope="col">#</th>*/}
-                            {/*    <th scope="col">First</th>*/}
-                            {/*    <th scope="col">Last</th>*/}
-                            {/*    <th scope="col">Handle</th>*/}
-                            {/*</tr>*/}
-                            {/*</thead>*/}
+
                             <tbody style={{textAlign: "left"}}>
+                            <tr>
+                                <th scope="row">Brand:</th>
+                                <td>{this.props.brand}</td>
+                            </tr>
                             <tr>
                                 <th scope="row">Name:</th>
                                 <td>{this.props.nimi}</td>
@@ -86,6 +83,11 @@ class Frisbee extends Component {
                                                 </div>
                                                 <div className="modal-body">
                                                     <form>
+                                                        <div className="form-group">
+                                                            <label htmlFor="name">Brand</label>
+                                                            <input type="text" className="form-control" id="controlInputBrand"
+                                                                   placeholder={this.props.brand} value={this.state.brand} onChange={this.brandChange}/>
+                                                        </div>
                                                         <div className="form-group">
                                                             <label htmlFor="name">Name</label>
                                                             <input type="text" className="form-control" id="controlInputNimi"

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 
 class Frisbeelisays extends Component {
-    state={id:'', name: '', speed: '1', glide:'1', turn:'0', fade:'0'}
-    // brand:'',
+    state={id:'', brand:'', name: '', speed: '1', glide:'1', turn:'0', fade:'0'}
 
+
+    brandChange = (ev) => {this.setState({brand: ev.target.value})}
     nameChange = (ev) => {this.setState({name: ev.target.value.toUpperCase()})}
     speedChange = (ev) => {this.setState({speed: ev.target.value})}
     glideChange = (ev) => {this.setState({glide: ev.target.value})}
@@ -14,7 +15,7 @@ class Frisbeelisays extends Component {
     lisays = (ev) => {
         ev.preventDefault()
         this.props.add(this.state)
-        this.setState({id:'', name: '', speed: '1', glide:'1', turn:'0', fade:'0'})
+        this.setState({id:'', brand:'', name: '', speed: '1', glide:'1', turn:'0', fade:'0'})
     }
 
 
@@ -38,8 +39,13 @@ class Frisbeelisays extends Component {
                             <div className="modal-body">
                                 <form>
                                     <div className="form-group">
+                                        <label htmlFor="brand">Brand</label>
+                                        <input type="text" className="form-control" id="formControlBrand"
+                                               placeholder="Name of the manufacturer" value={this.state.brand} onChange={this.brandChange}/>
+                                    </div>
+                                    <div className="form-group">
                                         <label htmlFor="name">Name</label>
-                                        <input type="text" className="form-control" id="exampleFormControlInput1"
+                                        <input type="text" className="form-control" id="formControlName"
                                                placeholder="Name of the disc" value={this.state.name} onChange={this.nameChange}/>
                                     </div>
                                     <div className="form-group">
