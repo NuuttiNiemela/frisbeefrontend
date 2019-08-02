@@ -73,7 +73,7 @@ renderRedirect = () => {
     }
 
     haeSivu = (s) => {
-        haeSivu(1)
+        haeSivu(s)
             .then((response) => {
                 this.setState({discs: response});
                 console.log(this.state)
